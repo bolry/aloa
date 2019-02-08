@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 #set -o xtrace
@@ -26,6 +27,7 @@ then
 		--config-output-lnt-file=co-gcc.lnt \
 		--config-output-header-file=co-gcc.h \
 		--generate-compiler-config
+	echo '//lint -cond(%LINT_VERSION% <= 1020, --u_GLIBCXX_HAVE_BUILTIN_IS_CONSTANT_EVALUATED)' >>co-gcc.h
 
 	echo "DONE" >&2
 	popd >/dev/null
